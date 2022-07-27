@@ -17,7 +17,7 @@
 
 
 \section{Technical Background}
-K-means clustering is an unsupervised Machine Learning (ML) protocol whose main goal is to classify datasets into K clusters. The term “k-means” was first used by James MacQueen in 1967, and published as a journal article in 1982. K-means clustering can minimize within cluster variances, the problem is computationally difficult (NP-hard) and the time complexity of the algorithm is specified by O(LNpK), where L = number of iterations taken to form clusters, N = number of datapoints, p = dataset dimension, K = centroids.\\
+K-means clustering is an unsupervised Machine Learning (ML) protocol whose main goal is to classify datasets into K clusters. The term “k-means” was first used by James MacQueen in 1967, and published as a journal article in 1982. K-means clustering can minimize within cluster variances. The problem is computationally difficult (NP-hard) and the time complexity of the algorithm is specified by O(LNpK), where L = number of iterations taken to form clusters, N = number of datapoints, p = dataset dimension, K = centroids.\\
 
 Clustering is the process of dividing the datasets into groups such that points in the same group are as similar as possible, and points in different groups are as dissimilar as possible. The k-means algorithm finds groups with the number of groups represented by the variable $K$. The algorithm works in an iterative manner to assign each data point to one of the k groups based on the features that are provided. \\
 
@@ -30,14 +30,14 @@ Fig.\ref{fig:kmeansclassica} give an example of how K-means to divide the simila
 \end{figure}
 
 A general way of doing the K-means algorithm is usually summarized in the following steps:
-\begin{itemize}
-    \item Initialize uniformly distributed cluster centroids $c_j$ which are randomly selected from the data setsInitialize uniformly distributed cluster centroids $c_j$ which are randomly selected from the data sets.
+\begin{enumerate}
+    \item Initialize uniformly distributed cluster centroids $c_j$ which are randomly selected from the data sets.
     \item For each $c_j$, the chosen metric is evaluated. For example, in simpler cases, the distance between each training data point and selected cluster centroids $c_j$ is evaluated.
     \item New clusters $C_j$ are defined by assigning training data to the nearest cluster centroids $c_j$.
-    \item New cluster centroids are updated
-    \item Repeat steps 3 to 5 are repeated depending on the resource constraints
-\end{itemize}
-In the second step, the Euclidean distance between cluster centroids and training data point need to be efficiently sampling and estimating, however it becomes exponentially difficult as number of variables (features) of each data point increase. Therefore, implement a computationally cheap quantum algorithm to calculate Euclidean distance is helpful.\\
+    \item New cluster centroids are updated.
+    \item Repeat steps 3 to 5 are repeated depending on the resource constraints.
+\end{enumerate}
+In the second step, the Euclidean distance between cluster centroids and training data point need to be efficiently estimated. However, it becomes exponentially difficult as the number of variables (features) of each data point increases. Therefore, implementing a computationally cheap quantum algorithm to calculate the Euclidean distance is helpful.\\
 
 In this project, our team proposed a hybrid algorithm which contains classical calculation to calculate cluster centroids and assigns features and using quantum circuit to compute Euclidean distance. 
 
